@@ -4,7 +4,7 @@ const uuid = require("uuid");
 const mailService = require("./mail-service");
 const tokenService = require("./token-service");
 const UserDto = require("../dtos/user-dto");
-const ApiError = require("../execeptions/api-error");
+const ApiError = require("../exceptions/api-error");
 
 class UserService {
   async registration(email, password) {
