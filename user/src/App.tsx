@@ -8,6 +8,7 @@ import UserService from "./services/UserService";
 function App() {
   const { store } = useContext(Context);
   const [users, setUsers] = useState<IUser[]>();
+
   useEffect(() => {
     if (localStorage.getItem("token")) {
       store.checkAuth();
@@ -28,16 +29,7 @@ function App() {
   }
 
   if (!store.isAuth) {
-    return (
-      <div>
-        <h1>{store.isAuth ? `Пользователь авторизован ` : "hyi"}</h1>
-        <LoginForm />
-        <button onClick={getUsers}>получить пользователей</button>
-      {users?.map((user) => (
-        <div key={user.email}>{user.email}</div>
-      ))}
-      </div>
-    );
+    return <LoginForm />;
   }
 
   return (
