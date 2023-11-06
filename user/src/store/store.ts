@@ -10,8 +10,15 @@ export default class Store {
   isAuth = false;
   isLoading = false;
 
+  error: string | null = null;
+
+  
   constructor() {
     makeAutoObservable(this);
+  }
+  
+  setError(message: string | null) {
+    this.error = message;
   }
 
   setAuth(bool: boolean) {
@@ -32,6 +39,8 @@ export default class Store {
       this.setUser(response.data.user);
     } catch (e: any) {
       console.log(e.response?.data?.massage);
+      this.setError(e.response?.data?.massage);
+      // console.log(this.error);
     }
   }
 
@@ -44,6 +53,7 @@ export default class Store {
       this.setUser(response.data.user);
     } catch (e: any) {
       console.log(e.response?.data?.massage);
+      this.setError(e.response?.data?.massage);
     }
   }
 
@@ -55,6 +65,7 @@ export default class Store {
       this.setUser({} as IUser);
     } catch (e: any) {
       console.log(e.response?.data?.massage);
+      this.setError(e.response?.data?.massage);
     }
   }
 
@@ -70,6 +81,8 @@ export default class Store {
       this.setUser(response.data.user);
     } catch (e: any) {
       console.log(e.response?.data?.massage);
+      this.setError(e.response?.data?.massage);
+      
     } finally {
       this.setLoading(false);
     }

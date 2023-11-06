@@ -1,0 +1,25 @@
+.hidden {
+  left: -440px;
+}
+
+#notification {
+  display: flex;
+  background-color: #ff3333;
+  width: 440px;
+  height: 50px;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  transition: left 0.5s;
+  padding: 15px;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bx-x {
+  right: 15px;
+  font-size: 26px;
+  cursor: pointer;
+}
